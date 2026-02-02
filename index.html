@@ -1,51 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nahid</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        .container {
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-        }
-        p {
-            font-size: 1.2em;
-        }
-    </style>
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 40%, #f48fb1 100%);
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  .bg-heart {
+    position: fixed;
+    color: rgba(255,255,255,0.25);
+    pointer-events: none;
+    animation: float linear infinite;
+  }
+  @keyframes float {
+    0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+  }
+
+  .card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 28px;
+    padding: 50px 60px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(180,60,80,0.2), 0 0 0 1px rgba(255,255,255,0.5) inset;
+    z-index: 10;
+    animation: cardIn 0.8s cubic-bezier(0.23,1,0.32,1);
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .bear {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    animation: wiggle 2s ease-in-out infinite;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-5deg); }
+    50%      { transform: rotate(5deg); }
+  }
+
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #c0392b;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    color: #888;
+    margin-bottom: 35px;
+  }
+
+  .buttons { display: flex; gap: 24px; justify-content: center; }
+
+  button {
+    padding: 16px 44px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #yes-btn {
+    background: linear-gradient(135deg, #e74c3c, #e91e63);
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(233,30,99,0.35);
+    transition: all 0.25s ease;
+  }
+
+  #no-btn {
+    background: #f5f5f5;
+    color: #999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  #celebration { display: none; }
+  #celebration .bear { animation: bounce 0.6s ease infinite alternate; }
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-15px); }
+  }
+  #celebration h1 { font-size: 3.2rem; margin-bottom: 12px; }
+  #celebration .subtitle { color: #c0392b; font-size: 1.2rem; }
+
+  @media (max-width: 600px) {
+    .card { padding: 35px 28px; margin: 0 16px; border-radius: 22px; }
+    .bear { font-size: 3.5rem; }
+    h1 { font-size: 2rem; }
+    .subtitle { font-size: 1rem; margin-bottom: 25px; }
+    .buttons { gap: 16px; }
+    button { padding: 14px 28px; font-size: 1rem; }
+    #celebration h1 { font-size: 2.4rem; }
+  }
+
+  .heart {
+    position: fixed; pointer-events: none;
+    animation: fall linear forwards; z-index: 100;
+  }
+  @keyframes fall {
+    0%   { opacity: 1; transform: translateY(0) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(110vh) rotate(720deg); }
+  }
+  .confetti {
+    position: fixed; pointer-events: none;
+    z-index: 100; animation: confettiFall linear forwards;
+  }
+  @keyframes confettiFall {
+    0%   { opacity: 1; transform: translateY(0) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(1080deg); }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7917885522983425"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-fb+5w+4e-db+86"
-     data-ad-client="ca-pub-7917885522983425"
-     data-ad-slot="1528919025"></ins>
+
+<div id="question" class="card">
+  <div class="bear">🧸</div>
+  <h1>Hey Nahid!</h1>
+  <p class="subtitle">Will you be my Valentine?</p>
+  <div class="buttons">
+    <button id="yes-btn">Yes!</button>
+    <button id="no-btn">No</button>
+  </div>
+</div>
+
+<div id="celebration" class="card">
+  <div class="bear">🥰</div>
+  <h1>Yaaay!</h1>
+  <p class="subtitle">I knew you'd say yes! Happy Valentine's Day!</p>
+</div>
+
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+  // floating bg hearts
+  (function() {
+    var emojis = ['♥','♥','❤','♡'];
+    for (var i = 0; i < 15; i++) {
+      var el = document.createElement('div');
+      el.className = 'bg-heart';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = (1 + Math.random() * 2.5) + 'rem';
+      el.style.animationDuration = (6 + Math.random() * 8) + 's';
+      el.style.animationDelay = (Math.random() * 10) + 's';
+      document.body.appendChild(el);
+    }
+  })();
+
+  var noBtn = document.getElementById('no-btn');
+  var yesBtn = document.getElementById('yes-btn');
+  var noTexts = ['No','Are you sure?','Really?','Think again!','Please?','Pretty please?',"Don't do this!","I'll cry...","You're breaking my heart!"];
+  var noCount = 0;
+
+  function moveNoBtn() {
+    noCount = Math.min(noCount + 1, noTexts.length - 1);
+    noBtn.textContent = noTexts[noCount];
+
+    // move to body on first escape
+    if (noBtn.parentElement !== document.body) {
+      document.body.appendChild(noBtn);
+      noBtn.style.position = 'fixed';
+      noBtn.style.zIndex = '999';
+      noBtn.style.margin = '0';
+    }
+
+    // measure after text change
+    setTimeout(function() {
+      var w = noBtn.offsetWidth;
+      var h = noBtn.offsetHeight;
+      var vw = window.innerWidth;
+      var vh = window.innerHeight;
+      var pad = 15;
+      var x = pad + Math.random() * Math.max(0, vw - w - pad * 2);
+      var y = pad + Math.random() * Math.max(0, vh - h - pad * 2);
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    }, 10);
+
+    // grow yes button
+    var scale = 1 + noCount * 0.06;
+    yesBtn.style.transform = 'scale(' + scale + ')';
+  }
+
+  // Desktop: hover
+  noBtn.addEventListener('mouseenter', function(e) {
+    moveNoBtn();
+  });
+
+  // Mobile: use touchend so iOS registers the interaction properly
+  noBtn.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    moveNoBtn();
+  });
+
+  // Yes button
+  function sayYes() {
+    document.getElementById('question').style.display = 'none';
+    noBtn.style.display = 'none';
+    document.getElementById('celebration').style.display = 'block';
+    for (var i = 0; i < 50; i++) setTimeout(spawnHeart, i * 80);
+    for (var i = 0; i < 60; i++) setTimeout(spawnConfetti, i * 50);
+  }
+
+  yesBtn.addEventListener('click', function(e) {
+    sayYes();
+  });
+
+  function spawnHeart() {
+    var h = document.createElement('div');
+    h.className = 'heart';
+    h.textContent = ['❤️','💕','💖','💗','💘','💝'][Math.floor(Math.random()*6)];
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.top = '-5vh';
+    h.style.animationDuration = (2.5 + Math.random() * 3) + 's';
+    h.style.fontSize = (1.2 + Math.random() * 2.5) + 'rem';
+    document.body.appendChild(h);
+    setTimeout(function() { h.remove(); }, 6000);
+  }
+
+  function spawnConfetti() {
+    var c = document.createElement('div');
+    c.className = 'confetti';
+    var colors = ['#e74c3c','#e91e63','#ff5722','#ff9800','#ffeb3b','#9c27b0','#2196f3'];
+    c.style.background = colors[Math.floor(Math.random()*colors.length)];
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.top = '-2vh';
+    c.style.width = (6 + Math.random() * 8) + 'px';
+    c.style.height = (6 + Math.random() * 8) + 'px';
+    c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    c.style.animationDuration = (2 + Math.random() * 3) + 's';
+    document.body.appendChild(c);
+    setTimeout(function() { c.remove(); }, 6000);
+  }
 </script>
-        <h1>Coming Soon...</h1>
-        <p>Our website is under construction. We’ll be here soon with our new awesome site.</p>
-    </div>
 </body>
 </html>
